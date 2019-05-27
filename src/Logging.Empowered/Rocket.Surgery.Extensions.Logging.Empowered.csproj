@@ -4,9 +4,9 @@
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\Logging\Rocket.Surgery.Extensions.Logging.csproj" />
+        <ProjectReference Include="..\DependencyInjection.Abstractions\Rocket.Surgery.Extensions.DependencyInjection.Abstractions.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Rocket.Surgery.Extensions.DependencyInjection.Abstractions" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Configuration" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Configuration" />
     </ItemGroup>
 </Project>
