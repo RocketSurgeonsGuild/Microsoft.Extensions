@@ -37,8 +37,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
             servicesBuilder.AssemblyCandidateFinder.Should().NotBeNull();
             servicesBuilder.Services.Should().BeSameAs(services);
             servicesBuilder.Configuration.Should().NotBeNull();
-            servicesBuilder.Application.Should().NotBeNull();
-            servicesBuilder.System.Should().NotBeNull();
             servicesBuilder.Environment.Should().NotBeNull();
 
             Action a = () => { servicesBuilder.PrependConvention(A.Fake<IServiceConvention>()); };
@@ -90,7 +88,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
             {
                 context.Services.AddSingleton(A.Fake<IAbc>());
                 context.Services.AddSingleton(A.Fake<IAbc2>());
-                context.System.Services.AddSingleton(A.Fake<IAbc3>());
             }
         }
 
@@ -102,7 +99,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
             var servicesBuilder = AutoFake.Resolve<ServicesBuilder>();
             servicesBuilder.Services.AddSingleton(A.Fake<IAbc>());
             servicesBuilder.Services.AddSingleton(A.Fake<IAbc2>());
-            servicesBuilder.System.Services.AddSingleton(A.Fake<IAbc3>());
 
             var sp = servicesBuilder.Build();
             sp.GetService<IAbc>().Should().NotBeNull();
@@ -117,9 +113,8 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
             AutoFake.Provide<IAssemblyProvider>(new TestAssemblyProvider());
             AutoFake.Provide<IServiceCollection>(new ServiceCollection());
             var servicesBuilder = AutoFake.Resolve<ServicesBuilder>();
-            servicesBuilder.Application.Services.AddSingleton(A.Fake<IAbc>());
-            servicesBuilder.Application.Services.AddSingleton(A.Fake<IAbc2>());
-            servicesBuilder.System.Services.AddSingleton(A.Fake<IAbc3>());
+            servicesBuilder.Services.AddSingleton(A.Fake<IAbc>());
+            servicesBuilder.Services.AddSingleton(A.Fake<IAbc2>());
             servicesBuilder.Services.AddSingleton(A.Fake<IAbc4>());
 
             var sp = servicesBuilder.Build();
@@ -135,9 +130,7 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
             AutoFake.Provide<IAssemblyProvider>(new TestAssemblyProvider());
             AutoFake.Provide<IServiceCollection>(new ServiceCollection());
             var servicesBuilder = AutoFake.Resolve<ServicesBuilder>();
-            servicesBuilder.System.Services.AddSingleton(A.Fake<IAbc>());
-            servicesBuilder.System.Services.AddSingleton(A.Fake<IAbc2>());
-            servicesBuilder.Application.Services.AddSingleton(A.Fake<IAbc3>());
+            servicesBuilder.Services.AddSingleton(A.Fake<IAbc3>());
             servicesBuilder.Services.AddSingleton(A.Fake<IAbc4>());
 
             var sp = servicesBuilder.Build();
@@ -180,14 +173,10 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
             var observerApplication = A.Fake<IObserver<IServiceProvider>>();
             var observerSystem = A.Fake<IObserver<IServiceProvider>>();
             servicesBuilder.OnBuild.Subscribe(observer);
-            servicesBuilder.Application.OnBuild.Subscribe(observerApplication);
-            servicesBuilder.System.OnBuild.Subscribe(observerSystem);
 
             var serviceProvider = servicesBuilder.Build();
 
             A.CallTo(() => observer.OnNext(serviceProvider)).MustHaveHappenedOnceExactly();
-            A.CallTo(() => observerApplication.OnNext(serviceProvider)).MustHaveHappenedOnceExactly();
-            A.CallTo(() => observerSystem.OnNext(A<IServiceProvider>._)).MustNotHaveHappened();
         }
     }
 }

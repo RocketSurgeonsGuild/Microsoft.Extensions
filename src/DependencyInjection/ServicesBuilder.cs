@@ -19,8 +19,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
     {
         private readonly DiagnosticSource _diagnosticSource;
         private readonly ServiceProviderObservable _onBuild;
-        private readonly ServiceWrapper _application;
-        private readonly ServiceWrapper _system;
 
         public ServicesBuilder(
             IConventionScanner scanner,
@@ -40,8 +38,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             Services = services ?? throw new ArgumentNullException(nameof(services));
             Logger = new DiagnosticLogger(diagnosticSource);
             _onBuild = new ServiceProviderObservable(Logger);
-            _application = new ServiceWrapper(Logger);
-            _system = new ServiceWrapper(Logger);
             ServiceProviderOptions = new ServiceProviderOptions()
             {
                 ValidateScopes = environment.IsDevelopment(),
@@ -61,19 +57,13 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             new ConventionComposer(Scanner)
                 .Register(this, typeof(IServiceConvention), typeof(ServiceConventionDelegate));
 
-            foreach (var s in Application.Services) Services.Add(s);
-
             var result = Services.BuildServiceProvider(ServiceProviderOptions);
             _onBuild.Send(result);
-            _application.OnBuild.Send(result);
             return result;
         }
 
         public IConfiguration Configuration { get; }
         public IHostingEnvironment Environment { get; }
-
-        public IServiceWrapper Application => _application;
-        public IServiceWrapper System => _system;
 
         public IServiceCollection Services { get; }
         public ILogger Logger { get; }

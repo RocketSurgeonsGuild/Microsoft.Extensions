@@ -39,8 +39,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
             servicesBuilder.AssemblyCandidateFinder.Should().NotBeNull();
             servicesBuilder.Services.Should().BeSameAs(services);
             servicesBuilder.Configuration.Should().NotBeNull();
-            servicesBuilder.Application.Should().NotBeNull();
-            servicesBuilder.System.Should().NotBeNull();
             servicesBuilder.Environment.Should().NotBeNull();
         }
 
@@ -48,7 +46,7 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
         public void StoresAndReturnsItems()
         {
             AutoFake.Provide<IDictionary<object, object>>(new Dictionary<object, object>());
-            var servicesBuilder = new ChildBuilder(AutoFake.Resolve<ApplicationServicesBuilder>());
+            var servicesBuilder = new ChildBuilder(AutoFake.Resolve<ServicesBuilder>());
 
             var value = new object();
             servicesBuilder[string.Empty] = value;
@@ -59,7 +57,7 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
         public void IgnoreNonExistentItems()
         {
             AutoFake.Provide<IDictionary<object, object>>(new Dictionary<object, object>());
-            var servicesBuilder = new ChildBuilder(AutoFake.Resolve<ApplicationServicesBuilder>());
+            var servicesBuilder = new ChildBuilder(AutoFake.Resolve<ServicesBuilder>());
 
             servicesBuilder[string.Empty].Should().BeNull();
         }

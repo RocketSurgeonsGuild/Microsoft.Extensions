@@ -22,10 +22,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
         public IAssemblyCandidateFinder AssemblyCandidateFinder => Parent.AssemblyCandidateFinder;
 
         public IServiceCollection Services => Parent.Services;
-
-        public IServiceWrapper System => Parent.System;
-
-        public IServiceWrapper Application => Parent.Application;
         public IObservable<IServiceProvider> OnBuild => Parent.OnBuild;
         public ILogger Logger => Parent.Logger;
     }

@@ -25,8 +25,6 @@ namespace Rocket.Surgery.Extensions.Logging
         public void Register(IServiceConventionContext context)
         {
             context.Services.RemoveAll<ILoggerProvider>();
-            context.Application.Services.RemoveAll<ILoggerProvider>();
-            context.System.Services.RemoveAll<ILoggerProvider>();
 
             var loggingBuilder = new LoggingBuilder(
                 _scanner,

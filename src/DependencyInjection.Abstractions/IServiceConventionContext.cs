@@ -7,13 +7,13 @@ using Rocket.Surgery.Conventions.Reflection;
 
 namespace Rocket.Surgery.Extensions.DependencyInjection
 {
-    public interface IServiceConventionContext : IConventionContext, IServiceWrapper
+    public interface IServiceConventionContext : IConventionContext
     {
         IConfiguration Configuration { get; }
         IHostingEnvironment Environment { get; }
         IAssemblyProvider AssemblyProvider { get; }
         IAssemblyCandidateFinder AssemblyCandidateFinder { get; }
-        IServiceWrapper System { get; }
-        IServiceWrapper Application { get; }
+        IServiceCollection Services { get; }
+        IObservable<IServiceProvider> OnBuild { get; }
     }
 }
