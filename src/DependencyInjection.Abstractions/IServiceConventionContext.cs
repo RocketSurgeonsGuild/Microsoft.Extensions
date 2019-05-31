@@ -10,7 +10,7 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
     public interface IServiceConventionContext : IConventionContext
     {
         IConfiguration Configuration { get; }
-        IHostingEnvironment Environment { get; }
+        IHostEnvironment Environment { get; }
         IAssemblyProvider AssemblyProvider { get; }
         IAssemblyCandidateFinder AssemblyCandidateFinder { get; }
         IServiceCollection Services { get; }

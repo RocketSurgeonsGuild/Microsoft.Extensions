@@ -26,7 +26,7 @@ namespace Rocket.Surgery.Extensions.Logging
             IAssemblyProvider assemblyProvider,
             IAssemblyCandidateFinder assemblyCandidateFinder,
             IServiceCollection services,
-            IHostingEnvironment environment,
+            IHostEnvironment environment,
             IConfiguration configuration,
             DiagnosticSource diagnosticSource,
             IDictionary<object, object> properties) : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
@@ -41,7 +41,7 @@ namespace Rocket.Surgery.Extensions.Logging
         protected override ILoggingBuilder GetBuilder() => this;
 
         public IServiceCollection Services { get; }
-        public IHostingEnvironment Environment { get; }
+        public IHostEnvironment Environment { get; }
         public IConfiguration Configuration { get; }
         public ILogger Logger { get; }
 

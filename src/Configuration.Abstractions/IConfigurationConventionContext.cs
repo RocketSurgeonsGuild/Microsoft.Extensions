@@ -9,7 +9,7 @@ namespace Rocket.Surgery.Extensions.Configuration
     public interface IConfigurationConventionContext : IConventionContext, Microsoft.Extensions.Configuration.IConfigurationBuilder
     {
         new IDictionary<object, object> Properties { get; }
-        IHostingEnvironment Environment { get; }
+        IHostEnvironment Environment { get; }
         IConfiguration Configuration { get; }
     }
 }

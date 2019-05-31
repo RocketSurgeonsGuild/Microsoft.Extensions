@@ -15,7 +15,7 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
 
         public IConfiguration Configuration => Parent.Configuration;
 
-        public IHostingEnvironment Environment => Parent.Environment;
+        public IHostEnvironment Environment => Parent.Environment;
 
         public IAssemblyProvider AssemblyProvider => Parent.AssemblyProvider;
 

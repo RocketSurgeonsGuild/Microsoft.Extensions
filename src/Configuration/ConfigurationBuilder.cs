@@ -23,7 +23,7 @@ namespace Rocket.Surgery.Extensions.Configuration
 
         public ConfigurationBuilder(
             IConventionScanner scanner,
-            IHostingEnvironment envionment,
+            IHostEnvironment envionment,
             IConfiguration configuration,
             IMsftConfigurationBuilder builder,
             DiagnosticSource diagnosticSource,
@@ -39,7 +39,7 @@ namespace Rocket.Surgery.Extensions.Configuration
 
         protected override IConfigurationBuilder GetBuilder() => this;
 
-        public IHostingEnvironment Environment { get; }
+        public IHostEnvironment Environment { get; }
         public IConfiguration Configuration { get; }
         public ILogger Logger { get; }
 

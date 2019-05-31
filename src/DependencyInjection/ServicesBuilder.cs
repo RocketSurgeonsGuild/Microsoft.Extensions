@@ -26,7 +26,7 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             IAssemblyCandidateFinder assemblyCandidateFinder,
             IServiceCollection services,
             IConfiguration configuration,
-            IHostingEnvironment environment,
+            IHostEnvironment environment,
             DiagnosticSource diagnosticSource,
             IDictionary<object, object> properties)
             : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
@@ -63,7 +63,7 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
         }
 
         public IConfiguration Configuration { get; }
-        public IHostingEnvironment Environment { get; }
+        public IHostEnvironment Environment { get; }
 
         public IServiceCollection Services { get; }
         public ILogger Logger { get; }
