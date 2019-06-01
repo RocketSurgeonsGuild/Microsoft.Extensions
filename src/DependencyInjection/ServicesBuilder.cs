@@ -26,14 +26,13 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             IAssemblyCandidateFinder assemblyCandidateFinder,
             IServiceCollection services,
             IConfiguration configuration,
-            IHostEnvironment environment,
+            IRocketEnvironment environment,
             DiagnosticSource diagnosticSource,
             IDictionary<object, object> properties)
-            : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
+            : base(environment, scanner, assemblyProvider, assemblyCandidateFinder, properties)
         {
             _diagnosticSource = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-            Environment = environment ?? throw new ArgumentNullException(nameof(environment));
 
             Services = services ?? throw new ArgumentNullException(nameof(services));
             Logger = new DiagnosticLogger(diagnosticSource);
@@ -44,7 +43,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             };
         }
 
-        protected override IServicesBuilder GetBuilder() => this;
         public ServiceProviderOptions ServiceProviderOptions { get; }
 
         /// <summary>
@@ -63,7 +61,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
         }
 
         public IConfiguration Configuration { get; }
-        public IHostEnvironment Environment { get; }
 
         public IServiceCollection Services { get; }
         public ILogger Logger { get; }

@@ -11,5 +11,5 @@ namespace Rocket.Surgery.Extensions.Configuration
     /// Interface ILoggingConvention
     /// </summary>
     /// TODO Edit XML Comment Template for ILoggingConvention
-    public interface IConfigurationBuilder : IBuilder, IConventionContainer<IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate> { }
+    public interface IConfigurationBuilder : IConventionContainer<IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate> { }
 }

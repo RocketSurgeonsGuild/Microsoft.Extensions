@@ -19,29 +19,23 @@ namespace Rocket.Surgery.Extensions.Logging
     /// </summary>
     public class LoggingBuilder : ConventionBuilder<ILoggingBuilder, ILoggingConvention, LoggingConventionDelegate>, ILoggingBuilder, ILoggingConventionContext
     {
-        private readonly DiagnosticSource _diagnosticSource;
-
         public LoggingBuilder(
             IConventionScanner scanner,
             IAssemblyProvider assemblyProvider,
             IAssemblyCandidateFinder assemblyCandidateFinder,
             IServiceCollection services,
-            IHostEnvironment environment,
+            IRocketEnvironment environment,
             IConfiguration configuration,
             DiagnosticSource diagnosticSource,
-            IDictionary<object, object> properties) : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
+            IDictionary<object, object> properties) : base(environment, scanner, assemblyProvider, assemblyCandidateFinder, properties)
         {
             Services = services ?? throw new ArgumentNullException(nameof(services));
-            Environment = environment ?? throw new ArgumentNullException(nameof(environment));
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-            _diagnosticSource = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
-            Logger = new DiagnosticLogger(_diagnosticSource);
+            var diagnosticSource1 = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
+            Logger = new DiagnosticLogger(diagnosticSource1);
         }
 
-        protected override ILoggingBuilder GetBuilder() => this;
-
         public IServiceCollection Services { get; }
-        public IHostEnvironment Environment { get; }
         public IConfiguration Configuration { get; }
         public ILogger Logger { get; }
 

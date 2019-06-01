@@ -14,7 +14,7 @@ namespace Rocket.Surgery.Extensions.Logging
         public static T UseEmpoweredLogging<T>(
             this T container,
             EmpoweredLoggingOptions options)
-            where T : IConventionHostBuilder
+            where T : IConventionHostBuilder<T>
         {
             container.AppendConvention(new LoggingServiceConvention(container.Scanner, container.DiagnosticSource, options));
             return container;

@@ -23,23 +23,19 @@ namespace Rocket.Surgery.Extensions.Configuration
 
         public ConfigurationBuilder(
             IConventionScanner scanner,
-            IHostEnvironment envionment,
+            IRocketEnvironment environment,
             IConfiguration configuration,
             IMsftConfigurationBuilder builder,
             DiagnosticSource diagnosticSource,
-            IDictionary<object, object> properties): base(scanner, properties)
+            IDictionary<object, object> properties): base(environment, scanner, properties)
         {
             _scanner = scanner ?? throw new ArgumentNullException(nameof(scanner));
             _builder = builder ?? throw new ArgumentNullException(nameof(builder));
-            Environment = envionment ?? throw new ArgumentNullException(nameof(envionment));
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _diagnosticSource = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
             Logger = new DiagnosticLogger(diagnosticSource);
         }
 
-        protected override IConfigurationBuilder GetBuilder() => this;
-
-        public IHostEnvironment Environment { get; }
         public IConfiguration Configuration { get; }
         public ILogger Logger { get; }
 
