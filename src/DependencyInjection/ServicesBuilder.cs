@@ -28,8 +28,9 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             IRocketEnvironment environment,
             DiagnosticSource diagnosticSource,
             IDictionary<object, object> properties)
-            : base(environment, scanner, assemblyProvider, assemblyCandidateFinder, properties)
+            : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
         {
+            Environment = environment ?? throw new ArgumentNullException(nameof(environment));
             _diagnosticSource = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
 
@@ -64,5 +65,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
         public IServiceCollection Services { get; }
         public ILogger Logger { get; }
         public IObservable<IServiceProvider> OnBuild => _onBuild;
+        public IRocketEnvironment Environment { get; }
     }
 }

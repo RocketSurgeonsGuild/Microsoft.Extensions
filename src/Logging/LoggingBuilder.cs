@@ -26,8 +26,9 @@ namespace Rocket.Surgery.Extensions.Logging
             IRocketEnvironment environment,
             IConfiguration configuration,
             DiagnosticSource diagnosticSource,
-            IDictionary<object, object> properties) : base(environment, scanner, assemblyProvider, assemblyCandidateFinder, properties)
+            IDictionary<object, object> properties) : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
         {
+            Environment = environment ?? throw new ArgumentNullException(nameof(environment));
             Services = services ?? throw new ArgumentNullException(nameof(services));
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             var diagnosticSource1 = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
@@ -37,6 +38,7 @@ namespace Rocket.Surgery.Extensions.Logging
         public IServiceCollection Services { get; }
         public IConfiguration Configuration { get; }
         public ILogger Logger { get; }
+        public IRocketEnvironment Environment { get; }
 
         public void Build()
         {

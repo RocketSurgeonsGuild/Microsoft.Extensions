@@ -26,7 +26,7 @@ namespace Rocket.Surgery.Extensions.Configuration
             IConfiguration configuration,
             IMsftConfigurationBuilder builder,
             DiagnosticSource diagnosticSource,
-            IDictionary<object, object> properties): base(environment, scanner, properties)
+            IDictionary<object, object> properties): base(scanner, properties)
         {
             _scanner = scanner ?? throw new ArgumentNullException(nameof(scanner));
             _builder = builder ?? throw new ArgumentNullException(nameof(builder));

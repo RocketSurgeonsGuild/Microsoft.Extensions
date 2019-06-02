@@ -10,12 +10,11 @@ namespace Rocket.Surgery.Extensions.Logging
 {
     public static class EmpoweredLoggingExtensions
     {
-        public static T UseEmpoweredLogging<T>(
-            this T container,
+        public static IConventionHostBuilder UseEmpoweredLogging(
+            this IConventionHostBuilder container,
             EmpoweredLoggingOptions options)
-            where T : IConventionHostBuilder<T>
         {
-            container.AppendConvention(new LoggingServiceConvention(container.Scanner, container.DiagnosticSource, options));
+            container.Scanner.AppendConvention(new LoggingServiceConvention(container.Scanner, container.DiagnosticSource, options));
             return container;
         }
     }
