@@ -4,7 +4,6 @@ using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
-using Rocket.Surgery.Builders;
 using Rocket.Surgery.Conventions;
 using Rocket.Surgery.Conventions.Reflection;
 using Rocket.Surgery.Conventions.Scanners;

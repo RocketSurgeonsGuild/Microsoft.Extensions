@@ -2,7 +2,6 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Rocket.Surgery.Builders;
 using Rocket.Surgery.Conventions;
 using Rocket.Surgery.Conventions.Reflection;
 using Rocket.Surgery.Extensions.Logging;
