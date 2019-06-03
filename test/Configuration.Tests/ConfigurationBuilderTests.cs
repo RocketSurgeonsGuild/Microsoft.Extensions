@@ -23,7 +23,6 @@ namespace Rocket.Surgery.Extensions.Configuration.Tests
             var builder = AutoFake.Resolve<ConfigurationBuilder>();
 
             builder.Configuration.Should().BeSameAs(configuration);
-            builder.Environment.Should().NotBeNull();
             Action a = () => { builder.AppendConvention(A.Fake<IConfigurationConvention>()); };
             a.Should().NotThrow();
             a = () => { builder.AppendDelegate(delegate { }); };

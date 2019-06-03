@@ -74,7 +74,7 @@ namespace Rocket.Surgery.Extensions.DependencyInjection.Tests
 
             servicesBuilder.PrependConvention(convention);
 
-            A.CallTo(() => AutoFake.Resolve<IConventionScanner>().PrependConvention(convention)).MustHaveHappened();
+            A.CallTo(() => AutoFake.Resolve<IConventionScanner>().PrependConvention(A<IEnumerable<IServiceConvention>>._)).MustHaveHappened();
         }
 
         public interface IAbc { }

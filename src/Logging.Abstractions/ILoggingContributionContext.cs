@@ -9,7 +9,13 @@ namespace Rocket.Surgery.Extensions.Logging
     {
         IAssemblyProvider AssemblyProvider { get; }
         IAssemblyCandidateFinder AssemblyCandidateFinder { get; }
-        IHostEnvironment Environment { get; }
         IConfiguration Configuration { get; }
+
+        /// <summary>
+        /// The environment that this convention is running
+        ///
+        /// Based on IHostEnvironment / IHostingEnvironment
+        /// </summary>
+        IRocketEnvironment Environment { get; }
     }
 }
