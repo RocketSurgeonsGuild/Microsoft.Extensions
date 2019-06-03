@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFrameworks>netcoreapp2.1;netcoreapp3.0</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Configuration\Rocket.Surgery.Extensions.Configuration.csproj" />
+        <ProjectReference Include="..\..\src\WebJobs\Rocket.Surgery.Extensions.WebJobs.csproj" />
     </ItemGroup>
 </Project>
