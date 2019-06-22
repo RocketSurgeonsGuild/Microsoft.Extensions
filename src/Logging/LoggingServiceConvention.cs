@@ -11,15 +11,13 @@ namespace Rocket.Surgery.Extensions.Logging
     {
         private readonly IConventionScanner _scanner;
         private readonly DiagnosticSource _diagnosticSource;
-        private readonly EmpoweredLoggingOptions _options;
+        private readonly RocketLoggingOptions _options;
         public LoggingServiceConvention(
             IConventionScanner scanner,
-            DiagnosticSource diagnosticSource,
-            EmpoweredLoggingOptions options)
+            DiagnosticSource diagnosticSource)
         {
             this._scanner = scanner;
             this._diagnosticSource = diagnosticSource;
-            this._options = options;
         }
 
         public void Register(IServiceConventionContext context)
@@ -43,7 +41,6 @@ namespace Rocket.Surgery.Extensions.Logging
         public void Register(ILoggingConventionContext context)
         {
             context.AddConfiguration(context.Configuration.GetSection("Logging"));
-            context.SetMinimumLevel(_options.GetLogLevel(context));
         }
     }
 }

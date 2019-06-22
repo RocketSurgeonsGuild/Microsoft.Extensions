@@ -5,7 +5,7 @@ using Rocket.Surgery.Conventions;
 
 namespace Rocket.Surgery.Extensions.Logging
 {
-    public class EmpoweredLoggingOptions
+    public class RocketLoggingOptions
     {
         /// <summary>
         /// Determines how the loglevel is captured, defautlts to the value that can be set into the configuraiton
