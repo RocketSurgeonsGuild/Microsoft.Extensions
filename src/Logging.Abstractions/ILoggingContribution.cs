@@ -4,7 +4,8 @@ namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
     /// Interface ILoggingConvention
+    /// Implements the <see cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Logging.ILoggingConventionContext}" />
     /// </summary>
-    /// TODO Edit XML Comment Template for ILoggingConvention
+    /// <seealso cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Logging.ILoggingConventionContext}" />
     public interface ILoggingConvention : IConvention<ILoggingConventionContext>{}
 }

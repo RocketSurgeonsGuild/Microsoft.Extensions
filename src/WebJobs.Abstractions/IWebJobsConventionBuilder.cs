@@ -3,9 +3,12 @@ using Rocket.Surgery.Conventions;
 namespace Rocket.Surgery.Extensions.WebJobs
 {
     /// <summary>
-    /// Class IWebJobsConventionBuilder.
+    /// IWebJobsConventionBuilder.
+    /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionBuilder{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder, Rocket.Surgery.Extensions.WebJobs.IWebJobsConvention, Rocket.Surgery.Extensions.WebJobs.WebJobsConventionDelegate}" />
+    /// Implements the <see cref="Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionContext" />
     /// </summary>
-    /// TODO Edit XML Comment Template for IWebJobsConventionBuilder
+    /// <seealso cref="Rocket.Surgery.Conventions.IConventionBuilder{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder, Rocket.Surgery.Extensions.WebJobs.IWebJobsConvention, Rocket.Surgery.Extensions.WebJobs.WebJobsConventionDelegate}" />
+    /// <seealso cref="Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionContext" />
     public interface IWebJobsConventionBuilder : IConventionBuilder<IWebJobsConventionBuilder, IWebJobsConvention, WebJobsConventionDelegate>, IWebJobsConventionContext
     {
         /// <summary>

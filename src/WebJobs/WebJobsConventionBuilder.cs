@@ -11,10 +11,39 @@ using Rocket.Surgery.Conventions.Scanners;
 
 namespace Rocket.Surgery.Extensions.WebJobs
 {
+    /// <summary>
+    /// Class WebJobsConventionBuilder.
+    /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder, Rocket.Surgery.Extensions.WebJobs.IWebJobsConvention, Rocket.Surgery.Extensions.WebJobs.WebJobsConventionDelegate}" />
+    /// Implements the <see cref="Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder" />
+    /// </summary>
+    /// <seealso cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder, Rocket.Surgery.Extensions.WebJobs.IWebJobsConvention, Rocket.Surgery.Extensions.WebJobs.WebJobsConventionDelegate}" />
+    /// <seealso cref="Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder" />
     public class WebJobsConventionBuilder : ConventionBuilder<IWebJobsConventionBuilder, IWebJobsConvention, WebJobsConventionDelegate>, IWebJobsConventionBuilder
     {
         private readonly DiagnosticSource _diagnosticSource;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebJobsConventionBuilder"/> class.
+        /// </summary>
+        /// <param name="scanner">The scanner.</param>
+        /// <param name="assemblyProvider">The assembly provider.</param>
+        /// <param name="assemblyCandidateFinder">The assembly candidate finder.</param>
+        /// <param name="webJobsBuilder">The web jobs builder.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="environment">The environment.</param>
+        /// <param name="diagnosticSource">The diagnostic source.</param>
+        /// <param name="properties">The properties.</param>
+        /// <exception cref="ArgumentNullException">
+        /// environment
+        /// or
+        /// diagnosticSource
+        /// or
+        /// configuration
+        /// or
+        /// webJobsBuilder
+        /// or
+        /// webJobsBuilder
+        /// </exception>
         public WebJobsConventionBuilder(
             IConventionScanner scanner,
             IAssemblyProvider assemblyProvider,
@@ -37,17 +66,37 @@ namespace Rocket.Surgery.Extensions.WebJobs
         /// <summary>
         /// Calls all conventions and loads them into the webJobsBuilder
         /// </summary>
-        /// <returns></returns>
         public void Build()
         {
             new ConventionComposer(Scanner)
                 .Register(this, typeof(IWebJobsConvention), typeof(WebJobsConventionDelegate));
         }
 
+        /// <summary>
+        /// Gets the web jobs builder.
+        /// </summary>
+        /// <value>The web jobs builder.</value>
         public IWebJobsBuilder WebJobsBuilder { get; }
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>The configuration.</value>
         public IConfiguration Configuration { get; }
+        /// <summary>
+        /// Gets the services.
+        /// </summary>
+        /// <value>The services.</value>
         public IServiceCollection Services { get; }
+        /// <summary>
+        /// A logger that is configured to work with each convention item
+        /// </summary>
+        /// <value>The logger.</value>
         public ILogger Logger { get; }
+        /// <summary>
+        /// The environment that this convention is running
+        /// Based on IHostEnvironment / IHostingEnvironment
+        /// </summary>
+        /// <value>The environment.</value>
         public IRocketEnvironment Environment { get; }
     }
 }

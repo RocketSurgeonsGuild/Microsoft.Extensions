@@ -14,11 +14,38 @@ using Rocket.Surgery.Extensions.DependencyInjection.Internals;
 
 namespace Rocket.Surgery.Extensions.DependencyInjection
 {
+    /// <summary>
+    /// Class ServicesBuilder.
+    /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder, Rocket.Surgery.Extensions.DependencyInjection.IServiceConvention, Rocket.Surgery.Extensions.DependencyInjection.ServiceConventionDelegate}" />
+    /// Implements the <see cref="Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder" />
+    /// </summary>
+    /// <seealso cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder, Rocket.Surgery.Extensions.DependencyInjection.IServiceConvention, Rocket.Surgery.Extensions.DependencyInjection.ServiceConventionDelegate}" />
+    /// <seealso cref="Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder" />
     public class ServicesBuilder : ConventionBuilder<IServicesBuilder, IServiceConvention, ServiceConventionDelegate>, IServicesBuilder
     {
         private readonly DiagnosticSource _diagnosticSource;
         private readonly ServiceProviderObservable _onBuild;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServicesBuilder"/> class.
+        /// </summary>
+        /// <param name="scanner">The scanner.</param>
+        /// <param name="assemblyProvider">The assembly provider.</param>
+        /// <param name="assemblyCandidateFinder">The assembly candidate finder.</param>
+        /// <param name="services">The services.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="environment">The environment.</param>
+        /// <param name="diagnosticSource">The diagnostic source.</param>
+        /// <param name="properties">The properties.</param>
+        /// <exception cref="ArgumentNullException">
+        /// environment
+        /// or
+        /// diagnosticSource
+        /// or
+        /// configuration
+        /// or
+        /// services
+        /// </exception>
         public ServicesBuilder(
             IConventionScanner scanner,
             IAssemblyProvider assemblyProvider,
@@ -43,13 +70,16 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             };
         }
 
+        /// <summary>
+        /// Gets the service provider options.
+        /// </summary>
+        /// <value>The service provider options.</value>
         public ServiceProviderOptions ServiceProviderOptions { get; }
 
         /// <summary>
         /// Builds the root container, and returns the lifetime scopes for the application and system containers
         /// </summary>
-        /// <param name="logger"></param>
-        /// <returns></returns>
+        /// <returns>IServiceProvider.</returns>
         public IServiceProvider Build()
         {
             new ConventionComposer(Scanner)
@@ -60,11 +90,32 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             return result;
         }
 
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>The configuration.</value>
         public IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// Gets the services.
+        /// </summary>
+        /// <value>The services.</value>
         public IServiceCollection Services { get; }
+        /// <summary>
+        /// A logger that is configured to work with each convention item
+        /// </summary>
+        /// <value>The logger.</value>
         public ILogger Logger { get; }
+        /// <summary>
+        /// Gets the on build.
+        /// </summary>
+        /// <value>The on build.</value>
         public IObservable<IServiceProvider> OnBuild => _onBuild;
+        /// <summary>
+        /// The environment that this convention is running
+        /// Based on IHostEnvironment / IHostingEnvironment
+        /// </summary>
+        /// <value>The environment.</value>
         public IRocketEnvironment Environment { get; }
     }
 }

@@ -13,13 +13,37 @@ namespace Rocket.Surgery.Extensions.Configuration
 {
     /// <summary>
     /// Logging Builder
+    /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionContainerBuilder{Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder, Rocket.Surgery.Extensions.Configuration.IConfigurationConvention, Rocket.Surgery.Extensions.Configuration.ConfigurationConventionDelegate}" />
+    /// Implements the <see cref="Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder" />
+    /// Implements the <see cref="Rocket.Surgery.Extensions.Configuration.IConfigurationConventionContext" />
     /// </summary>
+    /// <seealso cref="Rocket.Surgery.Conventions.ConventionContainerBuilder{Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder, Rocket.Surgery.Extensions.Configuration.IConfigurationConvention, Rocket.Surgery.Extensions.Configuration.ConfigurationConventionDelegate}" />
+    /// <seealso cref="Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder" />
+    /// <seealso cref="Rocket.Surgery.Extensions.Configuration.IConfigurationConventionContext" />
     public class ConfigurationBuilder : ConventionContainerBuilder<IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate>, IConfigurationBuilder, IConfigurationConventionContext
     {
         private readonly IConventionScanner _scanner;
         private readonly IMsftConfigurationBuilder _builder;
         private readonly DiagnosticSource _diagnosticSource;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfigurationBuilder"/> class.
+        /// </summary>
+        /// <param name="scanner">The scanner.</param>
+        /// <param name="environment">The environment.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="builder">The builder.</param>
+        /// <param name="diagnosticSource">The diagnostic source.</param>
+        /// <param name="properties">The properties.</param>
+        /// <exception cref="ArgumentNullException">
+        /// scanner
+        /// or
+        /// builder
+        /// or
+        /// configuration
+        /// or
+        /// diagnosticSource
+        /// </exception>
         public ConfigurationBuilder(
             IConventionScanner scanner,
             IRocketEnvironment environment,
@@ -35,9 +59,20 @@ namespace Rocket.Surgery.Extensions.Configuration
             Logger = new DiagnosticLogger(diagnosticSource);
         }
 
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>The configuration.</value>
         public IConfiguration Configuration { get; }
+        /// <summary>
+        /// A logger that is configured to work with each convention item
+        /// </summary>
+        /// <value>The logger.</value>
         public ILogger Logger { get; }
 
+        /// <summary>
+        /// Builds this instance.
+        /// </summary>
         public void Build()
         {
             new ConventionComposer(_scanner)

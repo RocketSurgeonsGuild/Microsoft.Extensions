@@ -22,6 +22,9 @@ namespace Rocket.Surgery.Extensions.Configuration.Tests
             var configuration = AutoFake.Resolve<IConfiguration>();
             var builder = AutoFake.Resolve<ConfigurationBuilder>();
 
+            builder.Logger.Should().NotBeNull();
+            builder.Configuration.Should().NotBeNull();
+
             builder.Configuration.Should().BeSameAs(configuration);
             Action a = () => { builder.AppendConvention(A.Fake<IConfigurationConvention>()); };
             a.Should().NotThrow();
@@ -30,7 +33,28 @@ namespace Rocket.Surgery.Extensions.Configuration.Tests
         }
 
         [Fact]
-        public void BuildsALogger()
+        public void IsAMsftConfigurationBuilder()
+        {
+            var configuration = AutoFake.Resolve<IConfiguration>();
+            var builder = AutoFake.Resolve<ConfigurationBuilder>();
+
+            var msftBuilder = builder as Microsoft.Extensions.Configuration.IConfigurationBuilder;
+            msftBuilder.Add(A.Fake<IConfigurationSource>());
+            msftBuilder.Build();
+
+            msftBuilder.Properties.Should().NotBeNull();
+            msftBuilder.Sources.Should().NotBeNull();
+
+            A.CallTo(() =>
+                AutoFake.Resolve<Microsoft.Extensions.Configuration.IConfigurationBuilder>()
+                    .Add(A<IConfigurationSource>._)).MustHaveHappened();
+            A.CallTo(() =>
+                AutoFake.Resolve<Microsoft.Extensions.Configuration.IConfigurationBuilder>()
+                    .Build()).MustHaveHappened();
+        }
+
+        [Fact]
+        public void BuildsSafely()
         {
             var builder = AutoFake.Resolve<ConfigurationBuilder>();
 

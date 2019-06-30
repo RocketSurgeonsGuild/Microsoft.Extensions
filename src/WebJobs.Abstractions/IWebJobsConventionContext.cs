@@ -7,17 +7,36 @@ using Rocket.Surgery.Conventions.Reflection;
 
 namespace Rocket.Surgery.Extensions.WebJobs
 {
+    /// <summary>
+    /// Interface IWebJobsConventionContext
+    /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContext" />
+    /// Implements the <see cref="Microsoft.Azure.WebJobs.IWebJobsBuilder" />
+    /// </summary>
+    /// <seealso cref="Rocket.Surgery.Conventions.IConventionContext" />
+    /// <seealso cref="Microsoft.Azure.WebJobs.IWebJobsBuilder" />
     public interface IWebJobsConventionContext : IConventionContext, IWebJobsBuilder
     {
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>The configuration.</value>
         IConfiguration Configuration { get; }
+        /// <summary>
+        /// Gets the assembly provider.
+        /// </summary>
+        /// <value>The assembly provider.</value>
         IAssemblyProvider AssemblyProvider { get; }
+        /// <summary>
+        /// Gets the assembly candidate finder.
+        /// </summary>
+        /// <value>The assembly candidate finder.</value>
         IAssemblyCandidateFinder AssemblyCandidateFinder { get; }
 
         /// <summary>
         /// The environment that this convention is running
-        ///
         /// Based on IHostEnvironment / IHostingEnvironment
         /// </summary>
+        /// <value>The environment.</value>
         IRocketEnvironment Environment { get; }
     }
 }

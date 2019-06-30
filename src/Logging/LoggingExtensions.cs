@@ -9,8 +9,17 @@ using Rocket.Surgery.Extensions.Logging;
 
 namespace Rocket.Surgery.Extensions.Logging
 {
+    /// <summary>
+    /// Class LoggingExtensions.
+    /// </summary>
     public static class LoggingExtensions
     {
+        /// <summary>
+        /// Uses the logging.
+        /// </summary>
+        /// <param name="container">The container.</param>
+        /// <param name="options">The options.</param>
+        /// <returns>IConventionHostBuilder.</returns>
         public static IConventionHostBuilder UseLogging(
             this IConventionHostBuilder container,
             RocketLoggingOptions options)

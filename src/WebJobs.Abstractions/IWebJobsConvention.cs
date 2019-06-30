@@ -4,8 +4,9 @@ namespace Rocket.Surgery.Extensions.WebJobs
 {
     /// <summary>
     /// Interface IWebJobsConvention
+    /// Implements the <see cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionContext}" />
     /// </summary>
-    /// TODO Edit XML Comment Template for IWebJobsConvention
+    /// <seealso cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionContext}" />
     public interface IWebJobsConvention : IConvention<IWebJobsConventionContext>
     {
     }

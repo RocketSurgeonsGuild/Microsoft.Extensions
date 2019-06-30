@@ -4,8 +4,9 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
 {
     /// <summary>
     /// Interface IServiceConvention
+    /// Implements the <see cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.DependencyInjection.IServiceConventionContext}" />
     /// </summary>
-    /// TODO Edit XML Comment Template for IServiceConvention
+    /// <seealso cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.DependencyInjection.IServiceConventionContext}" />
     public interface IServiceConvention : IConvention<IServiceConventionContext>
     {
     }

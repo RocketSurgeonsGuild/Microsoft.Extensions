@@ -4,8 +4,9 @@ namespace Rocket.Surgery.Extensions.Configuration
 {
     /// <summary>
     /// Interface ILoggingConvention
+    /// Implements the <see cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Configuration.IConfigurationConventionContext}" />
     /// </summary>
-    /// TODO Edit XML Comment Template for ILoggingConvention
+    /// <seealso cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Configuration.IConfigurationConventionContext}" />
     public interface IConfigurationConvention : IConvention<IConfigurationConventionContext>
     {
         

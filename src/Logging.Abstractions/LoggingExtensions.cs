@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
-// ReSharper disable once CheckNamespace
-namespace Microsoft.Extensions.Logging
+namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
-    /// Class LoggingExtensions.
+    /// LoggingExtensions.
     /// </summary>
-    /// TODO Edit XML Comment Template for LoggingExtensions
     public static class LoggingExtensions
     {
+        /// <summary>
+        /// Class Disposable.
+        /// Implements the <see cref="System.IDisposable" />
+        /// </summary>
+        /// <seealso cref="System.IDisposable" />
         class Disposable : IDisposable
         {
             private readonly IDisposable _disposable;
             private readonly Action<long> _action;
             private readonly Stopwatch _sw;
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Disposable"/> class.
+            /// </summary>
+            /// <param name="disposable">The disposable.</param>
+            /// <param name="action">The action.</param>
             public Disposable(IDisposable disposable, Action<long> action)
             {
                 _disposable = disposable;
@@ -25,6 +34,9 @@ namespace Microsoft.Extensions.Logging
                 _sw.Start();
             }
 
+            /// <summary>
+            /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            /// </summary>
             public void Dispose()
             {
                 _sw.Stop();
@@ -40,7 +52,6 @@ namespace Microsoft.Extensions.Logging
         /// <param name="message">The message.</param>
         /// <param name="args">The arguments.</param>
         /// <returns>IDisposable.</returns>
-        /// TODO Edit XML Comment Template for TimeTrace
         public static IDisposable TimeTrace(this ILogger logger, string message, params object[] args)
         {
             var scope = logger.BeginScope(new { });
@@ -59,7 +70,6 @@ namespace Microsoft.Extensions.Logging
         /// <param name="message">The message.</param>
         /// <param name="args">The arguments.</param>
         /// <returns>IDisposable.</returns>
-        /// TODO Edit XML Comment Template for TimeDebug
         public static IDisposable TimeDebug(this ILogger logger, string message, params object[] args)
         {
             var scope = logger.BeginScope(new { });
@@ -78,7 +88,6 @@ namespace Microsoft.Extensions.Logging
         /// <param name="message">The message.</param>
         /// <param name="args">The arguments.</param>
         /// <returns>IDisposable.</returns>
-        /// TODO Edit XML Comment Template for TimeInformation
         public static IDisposable TimeInformation(this ILogger logger, string message, params object[] args)
         {
             var scope = logger.BeginScope(new { });
