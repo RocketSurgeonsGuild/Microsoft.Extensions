@@ -15,7 +15,7 @@ using Rocket.Surgery.Extensions.DependencyInjection.Internals;
 namespace Rocket.Surgery.Extensions.DependencyInjection
 {
     /// <summary>
-    /// Class ServicesBuilder.
+    /// ServicesBuilder.
     /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder, Rocket.Surgery.Extensions.DependencyInjection.IServiceConvention, Rocket.Surgery.Extensions.DependencyInjection.ServiceConventionDelegate}" />
     /// Implements the <see cref="Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder" />
     /// </summary>

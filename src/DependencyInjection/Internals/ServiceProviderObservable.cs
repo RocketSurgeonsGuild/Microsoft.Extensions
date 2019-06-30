@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 namespace Rocket.Surgery.Extensions.DependencyInjection.Internals
 {
     /// <summary>
-    /// Class ServiceProviderObservable.
+    /// ServiceProviderObservable.
     /// Implements the <see cref="System.IObservable{System.IServiceProvider}" />
     /// </summary>
     /// <seealso cref="System.IObservable{System.IServiceProvider}" />

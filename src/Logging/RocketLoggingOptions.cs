@@ -6,7 +6,7 @@ using Rocket.Surgery.Conventions;
 namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
-    /// Class RocketLoggingOptions.
+    /// RocketLoggingOptions.
     /// </summary>
     public class RocketLoggingOptions
     {

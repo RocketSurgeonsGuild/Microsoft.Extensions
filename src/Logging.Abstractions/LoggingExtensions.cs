@@ -11,7 +11,7 @@ namespace Rocket.Surgery.Extensions.Logging
     public static class LoggingExtensions
     {
         /// <summary>
-        /// Class Disposable.
+        /// Disposable.
         /// Implements the <see cref="System.IDisposable" />
         /// </summary>
         /// <seealso cref="System.IDisposable" />

@@ -3,7 +3,7 @@
 namespace Rocket.Surgery.Extensions.DependencyInjection.Internals
 {
     /// <summary>
-    /// Class Disposable.
+    /// Disposable.
     /// Implements the <see cref="System.IDisposable" />
     /// </summary>
     /// <seealso cref="System.IDisposable" />

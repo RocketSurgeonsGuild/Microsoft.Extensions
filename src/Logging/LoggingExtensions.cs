@@ -10,7 +10,7 @@ using Rocket.Surgery.Extensions.Logging;
 namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
-    /// Class LoggingExtensions.
+    /// LoggingExtensions.
     /// </summary>
     public static class LoggingExtensions
     {

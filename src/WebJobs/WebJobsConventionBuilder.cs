@@ -12,7 +12,7 @@ using Rocket.Surgery.Conventions.Scanners;
 namespace Rocket.Surgery.Extensions.WebJobs
 {
     /// <summary>
-    /// Class WebJobsConventionBuilder.
+    /// WebJobsConventionBuilder.
     /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder, Rocket.Surgery.Extensions.WebJobs.IWebJobsConvention, Rocket.Surgery.Extensions.WebJobs.WebJobsConventionDelegate}" />
     /// Implements the <see cref="Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder" />
     /// </summary>

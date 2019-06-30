@@ -8,7 +8,7 @@ using Rocket.Surgery.Extensions.DependencyInjection;
 namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
-    /// Class LoggingServiceConvention.
+    /// LoggingServiceConvention.
     /// Implements the <see cref="Rocket.Surgery.Extensions.DependencyInjection.IServiceConvention" />
     /// Implements the <see cref="Rocket.Surgery.Extensions.Logging.ILoggingConvention" />
     /// </summary>
