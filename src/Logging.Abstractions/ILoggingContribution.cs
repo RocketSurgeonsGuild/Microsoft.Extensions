@@ -3,7 +3,7 @@
 namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
-    /// Interface ILoggingConvention
+    ///  ILoggingConvention
     /// Implements the <see cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Logging.ILoggingConventionContext}" />
     /// </summary>
     /// <seealso cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Logging.ILoggingConventionContext}" />

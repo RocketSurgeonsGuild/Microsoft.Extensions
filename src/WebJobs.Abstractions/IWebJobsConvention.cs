@@ -3,7 +3,7 @@
 namespace Rocket.Surgery.Extensions.WebJobs
 {
     /// <summary>
-    /// Interface IWebJobsConvention
+    ///  IWebJobsConvention
     /// Implements the <see cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionContext}" />
     /// </summary>
     /// <seealso cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionContext}" />

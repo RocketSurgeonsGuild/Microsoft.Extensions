@@ -7,6 +7,8 @@ using Rocket.Surgery.Conventions;
 using Rocket.Surgery.Conventions.Reflection;
 using Rocket.Surgery.Extensions.Logging;
 
+[assembly:Convention(typeof(LoggingServiceConvention))]
+
 namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
@@ -24,7 +26,7 @@ namespace Rocket.Surgery.Extensions.Logging
             this IConventionHostBuilder container,
             RocketLoggingOptions options)
         {
-            container.Scanner.PrependConvention(new LoggingServiceConvention(container.Scanner, container.DiagnosticSource));
+            container.Scanner.PrependConvention(new LoggingServiceConvention());
             container.Scanner.AppendDelegate(new LoggingConventionDelegate(context => context.SetMinimumLevel(options.GetLogLevel(context))));
             return container;
         }

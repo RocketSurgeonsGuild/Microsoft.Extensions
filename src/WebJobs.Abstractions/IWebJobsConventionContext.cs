@@ -8,7 +8,7 @@ using Rocket.Surgery.Conventions.Reflection;
 namespace Rocket.Surgery.Extensions.WebJobs
 {
     /// <summary>
-    /// Interface IWebJobsConventionContext
+    ///  IWebJobsConventionContext
     /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContext" />
     /// Implements the <see cref="Microsoft.Azure.WebJobs.IWebJobsBuilder" />
     /// </summary>

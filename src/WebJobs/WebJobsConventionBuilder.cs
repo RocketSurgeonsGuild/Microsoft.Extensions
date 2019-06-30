@@ -20,8 +20,6 @@ namespace Rocket.Surgery.Extensions.WebJobs
     /// <seealso cref="Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder" />
     public class WebJobsConventionBuilder : ConventionBuilder<IWebJobsConventionBuilder, IWebJobsConvention, WebJobsConventionDelegate>, IWebJobsConventionBuilder
     {
-        private readonly DiagnosticSource _diagnosticSource;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="WebJobsConventionBuilder"/> class.
         /// </summary>
@@ -51,16 +49,15 @@ namespace Rocket.Surgery.Extensions.WebJobs
             IWebJobsBuilder webJobsBuilder,
             IConfiguration configuration,
             IRocketEnvironment environment,
-            DiagnosticSource diagnosticSource,
+            ILogger diagnosticSource,
             IDictionary<object, object> properties)
             : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
         {
             Environment = environment ?? throw new ArgumentNullException(nameof(environment));
-            _diagnosticSource = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             WebJobsBuilder = webJobsBuilder ?? throw new ArgumentNullException(nameof(webJobsBuilder));
             Services = webJobsBuilder.Services ?? throw new ArgumentNullException(nameof(webJobsBuilder));
-            Logger = new DiagnosticLogger(diagnosticSource);
+            Logger = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
         }
 
         /// <summary>

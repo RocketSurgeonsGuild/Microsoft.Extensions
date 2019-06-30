@@ -8,7 +8,7 @@ using Rocket.Surgery.Conventions.Reflection;
 namespace Rocket.Surgery.Extensions.DependencyInjection
 {
     /// <summary>
-    /// Interface IServiceConventionContext
+    ///  IServiceConventionContext
     /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContext" />
     /// </summary>
     /// <seealso cref="Rocket.Surgery.Conventions.IConventionContext" />

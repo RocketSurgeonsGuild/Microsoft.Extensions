@@ -7,9 +7,17 @@ using Rocket.Surgery.Conventions.Scanners;
 namespace Rocket.Surgery.Extensions.Configuration
 {
     /// <summary>
-    /// Interface ILoggingConvention
+    ///  ILoggingConvention
     /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContainer{Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder, Rocket.Surgery.Extensions.Configuration.IConfigurationConvention, Rocket.Surgery.Extensions.Configuration.ConfigurationConventionDelegate}" />
     /// </summary>
     /// <seealso cref="Rocket.Surgery.Conventions.IConventionContainer{Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder, Rocket.Surgery.Extensions.Configuration.IConfigurationConvention, Rocket.Surgery.Extensions.Configuration.ConfigurationConventionDelegate}" />
-    public interface IConfigurationBuilder : IConventionContainer<IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate> { }
+    public interface IConfigurationBuilder : IConventionContainer<IConfigurationBuilder, IConfigurationConvention,
+        ConfigurationConventionDelegate>
+    {
+        /// <summary>
+        /// Gets the environment.
+        /// </summary>
+        /// <value>The environment.</value>
+        IRocketEnvironment Environment { get; }
+    }
 }

@@ -3,12 +3,12 @@
 namespace Rocket.Surgery.Extensions.Configuration
 {
     /// <summary>
-    /// Interface ILoggingConvention
+    ///  ILoggingConvention
     /// Implements the <see cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Configuration.IConfigurationConventionContext}" />
     /// </summary>
     /// <seealso cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Configuration.IConfigurationConventionContext}" />
     public interface IConfigurationConvention : IConvention<IConfigurationConventionContext>
     {
-        
+
     }
 }

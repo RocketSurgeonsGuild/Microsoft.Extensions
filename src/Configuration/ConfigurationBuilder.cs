@@ -24,7 +24,6 @@ namespace Rocket.Surgery.Extensions.Configuration
     {
         private readonly IConventionScanner _scanner;
         private readonly IMsftConfigurationBuilder _builder;
-        private readonly DiagnosticSource _diagnosticSource;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationBuilder"/> class.
@@ -40,7 +39,7 @@ namespace Rocket.Surgery.Extensions.Configuration
         /// or
         /// builder
         /// or
-        /// configuration
+        /// configuration 
         /// or
         /// diagnosticSource
         /// </exception>
@@ -49,15 +48,21 @@ namespace Rocket.Surgery.Extensions.Configuration
             IRocketEnvironment environment,
             IConfiguration configuration,
             IMsftConfigurationBuilder builder,
-            DiagnosticSource diagnosticSource,
-            IDictionary<object, object> properties): base(scanner, properties)
+            ILogger diagnosticSource,
+            IDictionary<object, object> properties) : base(scanner, properties)
         {
             _scanner = scanner ?? throw new ArgumentNullException(nameof(scanner));
             _builder = builder ?? throw new ArgumentNullException(nameof(builder));
+            Environment = environment;
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-            _diagnosticSource = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
-            Logger = new DiagnosticLogger(diagnosticSource);
+            Logger = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
         }
+
+        /// <summary>
+        /// Gets the environment.
+        /// </summary>
+        /// <value>The environment.</value>
+        public IRocketEnvironment Environment { get; }
 
         /// <summary>
         /// Gets the configuration.

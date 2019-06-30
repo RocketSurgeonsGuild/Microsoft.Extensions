@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Rocket.Surgery.Extensions.Configuration
 {
     /// <summary>
-    /// Interface IConfigurationConventionContext
+    ///  IConfigurationConventionContext
     /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContext" />
     /// Implements the <see cref="Microsoft.Extensions.Configuration.IConfigurationBuilder" />
     /// </summary>

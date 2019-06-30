@@ -51,14 +51,13 @@ namespace Rocket.Surgery.Extensions.Logging
             IServiceCollection services,
             IRocketEnvironment environment,
             IConfiguration configuration,
-            DiagnosticSource diagnosticSource,
+            ILogger diagnosticSource,
             IDictionary<object, object> properties) : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
         {
             Environment = environment ?? throw new ArgumentNullException(nameof(environment));
             Services = services ?? throw new ArgumentNullException(nameof(services));
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-            var diagnosticSource1 = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
-            Logger = new DiagnosticLogger(diagnosticSource1);
+            Logger = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
         }
 
         /// <summary>

@@ -23,7 +23,6 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
     /// <seealso cref="Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder" />
     public class ServicesBuilder : ConventionBuilder<IServicesBuilder, IServiceConvention, ServiceConventionDelegate>, IServicesBuilder
     {
-        private readonly DiagnosticSource _diagnosticSource;
         private readonly ServiceProviderObservable _onBuild;
 
         /// <summary>
@@ -53,16 +52,14 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
             IServiceCollection services,
             IConfiguration configuration,
             IRocketEnvironment environment,
-            DiagnosticSource diagnosticSource,
+            ILogger diagnosticSource,
             IDictionary<object, object> properties)
             : base(scanner, assemblyProvider, assemblyCandidateFinder, properties)
         {
             Environment = environment ?? throw new ArgumentNullException(nameof(environment));
-            _diagnosticSource = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-
             Services = services ?? throw new ArgumentNullException(nameof(services));
-            Logger = new DiagnosticLogger(diagnosticSource);
+            Logger = diagnosticSource ?? throw new ArgumentNullException(nameof(diagnosticSource));
             _onBuild = new ServiceProviderObservable(Logger);
             ServiceProviderOptions = new ServiceProviderOptions()
             {

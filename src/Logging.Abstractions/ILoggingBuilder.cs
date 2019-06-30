@@ -5,7 +5,7 @@ using Rocket.Surgery.Conventions.Reflection;
 namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
-    /// Interface ILoggingConvention
+    ///  ILoggingConvention
     /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionBuilder{Rocket.Surgery.Extensions.Logging.ILoggingBuilder, Rocket.Surgery.Extensions.Logging.ILoggingConvention, Rocket.Surgery.Extensions.Logging.LoggingConventionDelegate}" />
     /// </summary>
     /// <seealso cref="Rocket.Surgery.Conventions.IConventionBuilder{Rocket.Surgery.Extensions.Logging.ILoggingBuilder, Rocket.Surgery.Extensions.Logging.ILoggingConvention, Rocket.Surgery.Extensions.Logging.LoggingConventionDelegate}" />
