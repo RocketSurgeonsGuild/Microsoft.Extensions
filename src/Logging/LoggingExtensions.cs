@@ -24,10 +24,10 @@ namespace Rocket.Surgery.Extensions.Logging
         /// <returns>IConventionHostBuilder.</returns>
         public static IConventionHostBuilder UseLogging(
             this IConventionHostBuilder container,
-            RocketLoggingOptions options)
+            RocketLoggingOptions options = null)
         {
-            container.Scanner.PrependConvention(new LoggingServiceConvention());
-            container.Scanner.AppendDelegate(new LoggingConventionDelegate(context => context.SetMinimumLevel(options.GetLogLevel(context))));
+            container.ServiceProperties[typeof(RocketLoggingOptions)] = options ?? new RocketLoggingOptions();
+            container.Scanner.PrependConvention<LoggingServiceConvention>();
             return container;
         }
     }
