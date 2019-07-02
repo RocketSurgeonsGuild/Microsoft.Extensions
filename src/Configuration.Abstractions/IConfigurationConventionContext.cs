@@ -8,10 +8,10 @@ namespace Rocket.Surgery.Extensions.Configuration
 {
     /// <summary>
     ///  IConfigurationConventionContext
-    /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContext" />
+    /// Implements the <see cref="IConventionContext" />
     /// Implements the <see cref="Microsoft.Extensions.Configuration.IConfigurationBuilder" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.IConventionContext" />
+    /// <seealso cref="IConventionContext" />
     /// <seealso cref="Microsoft.Extensions.Configuration.IConfigurationBuilder" />
     public interface IConfigurationConventionContext : IConventionContext, Microsoft.Extensions.Configuration.IConfigurationBuilder
     {

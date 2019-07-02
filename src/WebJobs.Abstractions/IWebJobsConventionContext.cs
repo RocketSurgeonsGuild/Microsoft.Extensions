@@ -9,11 +9,11 @@ namespace Rocket.Surgery.Extensions.WebJobs
 {
     /// <summary>
     ///  IWebJobsConventionContext
-    /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContext" />
-    /// Implements the <see cref="Microsoft.Azure.WebJobs.IWebJobsBuilder" />
+    /// Implements the <see cref="IConventionContext" />
+    /// Implements the <see cref="IWebJobsBuilder" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.IConventionContext" />
-    /// <seealso cref="Microsoft.Azure.WebJobs.IWebJobsBuilder" />
+    /// <seealso cref="IConventionContext" />
+    /// <seealso cref="IWebJobsBuilder" />
     public interface IWebJobsConventionContext : IConventionContext, IWebJobsBuilder
     {
         /// <summary>

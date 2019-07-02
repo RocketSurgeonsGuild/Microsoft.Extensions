@@ -16,11 +16,17 @@ namespace Rocket.Surgery.Extensions.DependencyInjection
 {
     /// <summary>
     /// ServicesBuilder.
-    /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder, Rocket.Surgery.Extensions.DependencyInjection.IServiceConvention, Rocket.Surgery.Extensions.DependencyInjection.ServiceConventionDelegate}" />
-    /// Implements the <see cref="Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder" />
+    /// Implements the <see cref="ConventionBuilder{IServicesBuilder, IServiceConvention, ServiceConventionDelegate}" />
+    /// Implements the <see cref="IServicesBuilder" />
+    /// Implements the <see cref="IServiceConvention" />
+    /// Implements the <see cref="IServiceConventionContext" />
+    /// Implements the <see cref="ServiceConventionDelegate" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder, Rocket.Surgery.Extensions.DependencyInjection.IServiceConvention, Rocket.Surgery.Extensions.DependencyInjection.ServiceConventionDelegate}" />
-    /// <seealso cref="Rocket.Surgery.Extensions.DependencyInjection.IServicesBuilder" />
+    /// <seealso cref="ConventionBuilder{IServicesBuilder, IServiceConvention, ServiceConventionDelegate}" />
+    /// <seealso cref="IServicesBuilder" />
+    /// <seealso cref="IServiceConvention" />
+    /// <seealso cref="IServiceConventionContext" />
+    /// <seealso cref="ServiceConventionDelegate" />
     public class ServicesBuilder : ConventionBuilder<IServicesBuilder, IServiceConvention, ServiceConventionDelegate>, IServicesBuilder
     {
         private readonly ServiceProviderObservable _onBuild;

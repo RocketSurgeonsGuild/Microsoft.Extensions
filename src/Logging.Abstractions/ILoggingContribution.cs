@@ -4,8 +4,8 @@ namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
     ///  ILoggingConvention
-    /// Implements the <see cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Logging.ILoggingConventionContext}" />
+    /// Implements the <see cref="IConvention{ILoggingConventionContext}" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.IConvention{Rocket.Surgery.Extensions.Logging.ILoggingConventionContext}" />
+    /// <seealso cref="IConvention{ILoggingConventionContext}" />
     public interface ILoggingConvention : IConvention<ILoggingConventionContext>{}
 }

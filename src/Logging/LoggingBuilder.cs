@@ -15,13 +15,17 @@ namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
     /// Logging Builder
-    /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.Logging.ILoggingBuilder, Rocket.Surgery.Extensions.Logging.ILoggingConvention, Rocket.Surgery.Extensions.Logging.LoggingConventionDelegate}" />
-    /// Implements the <see cref="Rocket.Surgery.Extensions.Logging.ILoggingBuilder" />
-    /// Implements the <see cref="Rocket.Surgery.Extensions.Logging.ILoggingConventionContext" />
+    /// Implements the <see cref="ConventionBuilder{ILoggingBuilder, ILoggingConvention, LoggingConventionDelegate}" />
+    /// Implements the <see cref="ILoggingBuilder" />
+    /// Implements the <see cref="ILoggingConvention" />
+    /// Implements the <see cref="ILoggingConventionContext" />
+    /// Implements the <see cref="LoggingConventionDelegate" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.Logging.ILoggingBuilder, Rocket.Surgery.Extensions.Logging.ILoggingConvention, Rocket.Surgery.Extensions.Logging.LoggingConventionDelegate}" />
-    /// <seealso cref="Rocket.Surgery.Extensions.Logging.ILoggingBuilder" />
-    /// <seealso cref="Rocket.Surgery.Extensions.Logging.ILoggingConventionContext" />
+    /// <seealso cref="ConventionBuilder{ILoggingBuilder, ILoggingConvention, LoggingConventionDelegate}" />
+    /// <seealso cref="ILoggingBuilder" />
+    /// <seealso cref="ILoggingConvention" />
+    /// <seealso cref="ILoggingConventionContext" />
+    /// <seealso cref="LoggingConventionDelegate" />
     public class LoggingBuilder : ConventionBuilder<ILoggingBuilder, ILoggingConvention, LoggingConventionDelegate>, ILoggingBuilder, ILoggingConventionContext
     {
         /// <summary>

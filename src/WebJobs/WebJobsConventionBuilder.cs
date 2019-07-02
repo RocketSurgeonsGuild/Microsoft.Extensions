@@ -13,11 +13,17 @@ namespace Rocket.Surgery.Extensions.WebJobs
 {
     /// <summary>
     /// WebJobsConventionBuilder.
-    /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder, Rocket.Surgery.Extensions.WebJobs.IWebJobsConvention, Rocket.Surgery.Extensions.WebJobs.WebJobsConventionDelegate}" />
-    /// Implements the <see cref="Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder" />
+    /// Implements the <see cref="ConventionBuilder{IWebJobsConventionBuilder, IWebJobsConvention, WebJobsConventionDelegate}" />
+    /// Implements the <see cref="IWebJobsConventionBuilder" />
+    /// Implements the <see cref="IWebJobsConvention" />
+    /// Implements the <see cref="IWebJobsConventionContext" />
+    /// Implements the <see cref="WebJobsConventionDelegate" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.ConventionBuilder{Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder, Rocket.Surgery.Extensions.WebJobs.IWebJobsConvention, Rocket.Surgery.Extensions.WebJobs.WebJobsConventionDelegate}" />
-    /// <seealso cref="Rocket.Surgery.Extensions.WebJobs.IWebJobsConventionBuilder" />
+    /// <seealso cref="ConventionBuilder{IWebJobsConventionBuilder, IWebJobsConvention, WebJobsConventionDelegate}" />
+    /// <seealso cref="IWebJobsConventionBuilder" />
+    /// <seealso cref="IWebJobsConvention" />
+    /// <seealso cref="IWebJobsConventionContext" />
+    /// <seealso cref="WebJobsConventionDelegate" />
     public class WebJobsConventionBuilder : ConventionBuilder<IWebJobsConventionBuilder, IWebJobsConvention, WebJobsConventionDelegate>, IWebJobsConventionBuilder
     {
         /// <summary>

@@ -8,9 +8,15 @@ namespace Rocket.Surgery.Extensions.Configuration
 {
     /// <summary>
     ///  ILoggingConvention
-    /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContainer{Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder, Rocket.Surgery.Extensions.Configuration.IConfigurationConvention, Rocket.Surgery.Extensions.Configuration.ConfigurationConventionDelegate}" />
+    /// Implements the <see cref="IConventionContainer{IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate}" />
+    /// Implements the <see cref="IConfigurationConvention" />
+    /// Implements the <see cref="IConfigurationConventionContext" />
+    /// Implements the <see cref="ConfigurationConventionDelegate" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.IConventionContainer{Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder, Rocket.Surgery.Extensions.Configuration.IConfigurationConvention, Rocket.Surgery.Extensions.Configuration.ConfigurationConventionDelegate}" />
+    /// <seealso cref="IConventionContainer{IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate}" />
+    /// <seealso cref="IConfigurationConvention" />
+    /// <seealso cref="IConfigurationConventionContext" />
+    /// <seealso cref="ConfigurationConventionDelegate" />
     public interface IConfigurationBuilder : IConventionContainer<IConfigurationBuilder, IConfigurationConvention,
         ConfigurationConventionDelegate>
     {

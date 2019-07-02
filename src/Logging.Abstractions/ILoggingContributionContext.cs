@@ -7,10 +7,10 @@ namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
     ///  ILoggingConventionContext
-    /// Implements the <see cref="Rocket.Surgery.Conventions.IConventionContext" />
+    /// Implements the <see cref="IConventionContext" />
     /// Implements the <see cref="Microsoft.Extensions.Logging.ILoggingBuilder" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.IConventionContext" />
+    /// <seealso cref="IConventionContext" />
     /// <seealso cref="Microsoft.Extensions.Logging.ILoggingBuilder" />
     public interface ILoggingConventionContext : IConventionContext, Microsoft.Extensions.Logging.ILoggingBuilder
     {

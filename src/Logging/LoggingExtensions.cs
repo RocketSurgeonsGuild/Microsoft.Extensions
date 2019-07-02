@@ -7,9 +7,8 @@ using Rocket.Surgery.Conventions;
 using Rocket.Surgery.Conventions.Reflection;
 using Rocket.Surgery.Extensions.Logging;
 
-[assembly:Convention(typeof(LoggingServiceConvention))]
-
-namespace Rocket.Surgery.Extensions.Logging
+// ReSharper disable once CheckNamespace
+namespace Rocket.Surgery.Conventions
 {
     /// <summary>
     /// LoggingExtensions.

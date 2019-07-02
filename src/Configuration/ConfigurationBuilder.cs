@@ -13,13 +13,17 @@ namespace Rocket.Surgery.Extensions.Configuration
 {
     /// <summary>
     /// Logging Builder
-    /// Implements the <see cref="Rocket.Surgery.Conventions.ConventionContainerBuilder{Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder, Rocket.Surgery.Extensions.Configuration.IConfigurationConvention, Rocket.Surgery.Extensions.Configuration.ConfigurationConventionDelegate}" />
-    /// Implements the <see cref="Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder" />
-    /// Implements the <see cref="Rocket.Surgery.Extensions.Configuration.IConfigurationConventionContext" />
+    /// Implements the <see cref="ConventionContainerBuilder{IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate}" />
+    /// Implements the <see cref="IConfigurationBuilder" />
+    /// Implements the <see cref="IConfigurationConvention" />
+    /// Implements the <see cref="IConfigurationConventionContext" />
+    /// Implements the <see cref="ConfigurationConventionDelegate" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Conventions.ConventionContainerBuilder{Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder, Rocket.Surgery.Extensions.Configuration.IConfigurationConvention, Rocket.Surgery.Extensions.Configuration.ConfigurationConventionDelegate}" />
-    /// <seealso cref="Rocket.Surgery.Extensions.Configuration.IConfigurationBuilder" />
-    /// <seealso cref="Rocket.Surgery.Extensions.Configuration.IConfigurationConventionContext" />
+    /// <seealso cref="ConventionContainerBuilder{IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate}" />
+    /// <seealso cref="IConfigurationBuilder" />
+    /// <seealso cref="IConfigurationConvention" />
+    /// <seealso cref="IConfigurationConventionContext" />
+    /// <seealso cref="ConfigurationConventionDelegate" />
     public class ConfigurationBuilder : ConventionContainerBuilder<IConfigurationBuilder, IConfigurationConvention, ConfigurationConventionDelegate>, IConfigurationBuilder, IConfigurationConventionContext
     {
         private readonly IConventionScanner _scanner;

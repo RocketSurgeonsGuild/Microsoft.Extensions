@@ -6,16 +6,19 @@ using Microsoft.Extensions.Logging;
 using Rocket.Surgery.Conventions;
 using Rocket.Surgery.Conventions.Scanners;
 using Rocket.Surgery.Extensions.DependencyInjection;
+using Rocket.Surgery.Extensions.Logging;
+
+[assembly:Convention(typeof(LoggingServiceConvention))]
 
 namespace Rocket.Surgery.Extensions.Logging
 {
     /// <summary>
     /// LoggingServiceConvention.
-    /// Implements the <see cref="Rocket.Surgery.Extensions.DependencyInjection.IServiceConvention" />
-    /// Implements the <see cref="Rocket.Surgery.Extensions.Logging.ILoggingConvention" />
+    /// Implements the <see cref="IServiceConvention" />
+    /// Implements the <see cref="ILoggingConvention" />
     /// </summary>
-    /// <seealso cref="Rocket.Surgery.Extensions.DependencyInjection.IServiceConvention" />
-    /// <seealso cref="Rocket.Surgery.Extensions.Logging.ILoggingConvention" />
+    /// <seealso cref="IServiceConvention" />
+    /// <seealso cref="ILoggingConvention" />
     public class LoggingServiceConvention : IServiceConvention, ILoggingConvention
     {
         private readonly RocketLoggingOptions _options;

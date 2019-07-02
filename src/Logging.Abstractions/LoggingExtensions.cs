@@ -12,9 +12,9 @@ namespace Rocket.Surgery.Extensions.Logging
     {
         /// <summary>
         /// Disposable.
-        /// Implements the <see cref="System.IDisposable" />
+        /// Implements the <see cref="IDisposable" />
         /// </summary>
-        /// <seealso cref="System.IDisposable" />
+        /// <seealso cref="IDisposable" />
         class Disposable : IDisposable
         {
             private readonly IDisposable _disposable;
