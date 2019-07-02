@@ -43,7 +43,7 @@ namespace Rocket.Surgery.Extensions.Logging.Tests
             var finder = AutoFake.Resolve<IAssemblyCandidateFinder>();
 
             A.CallTo(() => finder.GetCandidateAssemblies(A<IEnumerable<string>>._))
-                .Returns(new[] { typeof(LoggingExtensions).Assembly });
+                .Returns(new[] { typeof(LoggingHostBuilderExtensions).Assembly });
 
             properties[typeof(ILogger)] = Logger;
             var scanner = AutoFake.Resolve<SimpleConventionScanner>();
@@ -80,7 +80,6 @@ namespace Rocket.Surgery.Extensions.Logging.Tests
 
             var builder = AutoFake.Resolve<HostBuilder>();
             var sb = AutoFake.Resolve<ServicesBuilder>();
-            sb.Services.AddOptions();
 
             Func<ILoggingConventionContext, LogLevel> @delegate = x => LogLevel.Error;
 

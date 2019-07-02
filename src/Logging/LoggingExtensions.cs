@@ -14,7 +14,7 @@ namespace Rocket.Surgery.Extensions.Logging
     /// <summary>
     /// LoggingExtensions.
     /// </summary>
-    public static class LoggingExtensions
+    public static class LoggingHostBuilderExtensions
     {
         /// <summary>
         /// Uses the logging.
