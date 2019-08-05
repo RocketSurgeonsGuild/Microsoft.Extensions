@@ -43,7 +43,7 @@ namespace Rocket.Surgery.Extensions.Logging.Tests
             var finder = AutoFake.Resolve<IAssemblyCandidateFinder>();
 
             A.CallTo(() => finder.GetCandidateAssemblies(A<IEnumerable<string>>._))
-                .Returns(new[] { typeof(LoggingHostBuilderExtensions).Assembly });
+                .Returns(new[] { typeof(LoggingHostBuilder2Extensions).Assembly });
 
             properties[typeof(ILogger)] = Logger;
             var scanner = AutoFake.Resolve<SimpleConventionScanner>();
